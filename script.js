@@ -1,11 +1,18 @@
-let curtidas = 0;
+const botoes = document.querySelectorAll(".botao-curtida");
 
-const botaoCurtir = document.getElementById("botao-curtir");
-const contadorCurtidas = document.getElementById("contador-curtidas");
+botoes.forEach(function (botao) {
 
-botaoCurtir.addEventListener("click", function () {
-    curtidas++;
+    let clicado = false;
 
-    contadorCurtidas.textContent = curtidas + " curtidas";
-    botaoCurtir.textContent = "♥ Curtido";
+    botao.addEventListener("click", function () {
+
+        let contador = botao.querySelector("span");
+
+        if (clicado === false) {
+            contador.textContent++;
+            clicado = true;
+        }
+
+    });
+
 });
